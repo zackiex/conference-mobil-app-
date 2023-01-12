@@ -15,8 +15,16 @@ class ProfileScreen extends StatefulWidget {
 
 class _ProfileScreenState extends State<ProfileScreen> {
   String username = '';
+  // String firstname = '';
+  // String lastname = '';
+  String email = '';
+  String password = '';
   bool dataisthere = false;
   TextEditingController usernamecontroller = TextEditingController();
+  // TextEditingController firstnamecontroller = TextEditingController();
+  // TextEditingController lastnamecontroller = TextEditingController();
+  TextEditingController emailcontroller = TextEditingController();
+  TextEditingController passwordcontroller = TextEditingController();
 
   @override
   void initState() {
@@ -26,11 +34,19 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   editprofil() async {
-    usercollection
-        .doc(FirebaseAuth.instance.currentUser!.uid)
-        .update({'username': usernamecontroller.text});
+    usercollection.doc(FirebaseAuth.instance.currentUser!.uid).update({
+      'username': usernamecontroller.text,
+      // 'firstname': firstnamecontroller.text,
+      // 'lastname': lastnamecontroller.text,
+      'email': emailcontroller.text,
+      'password': passwordcontroller.text,
+    });
     setState(() {
       username = usernamecontroller.text;
+      // firstname = usernamecontroller.text;
+      // lastname = usernamecontroller.text;
+      email = usernamecontroller.text;
+      password = usernamecontroller.text;
     });
     Navigator.pop(context);
   }
@@ -40,6 +56,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
         await usercollection.doc(FirebaseAuth.instance.currentUser!.uid).get();
     setState(() {
       username = userdoc['username'];
+      // firstname = userdoc['firstname'];
+      // lastname = userdoc['lastname'];
+      email = userdoc['email'];
+      password = userdoc['password'];
       dataisthere = true;
     });
   }
@@ -48,45 +68,99 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return showDialog(
         context: context,
         builder: (context) {
-          return Dialog(
-            child: Container(
-              height: 200,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: 30,
-                  ),
-                  Container(
-                    margin: EdgeInsets.only(left: 30, right: 30),
-                    child: TextField(
-                      controller: usernamecontroller,
-                      style: mystyle(18, Colors.blueGrey),
-                      decoration: InputDecoration(
-                          labelText: "Update Username",
-                          labelStyle: mystyle(16, Colors.black26)),
+          return SingleChildScrollView(
+            child: Dialog(
+              child: Container(
+                height: 700,
+                child: Column(
+                  children: [
+                    // SizedBox(
+                    //   height: 30,
+                    // ),
+                    // Container(
+                    //   margin: EdgeInsets.only(left: 30, right: 30),
+                    //   child: TextField(
+                    //     controller: firstnamecontroller,
+                    //     style: mystyle(18, Colors.blueGrey),
+                    //     decoration: InputDecoration(
+                    //         labelText: "Update First Name",
+                    //         labelStyle: mystyle(16, Colors.black26)),
+                    //   ),
+                    // ),
+                    // SizedBox(
+                    //   height: 30,
+                    // ),
+                    // Container(
+                    //   margin: EdgeInsets.only(left: 30, right: 30),
+                    //   child: TextField(
+                    //     controller: lastnamecontroller,
+                    //     style: mystyle(18, Colors.blueGrey),
+                    //     decoration: InputDecoration(
+                    //         labelText: "Update Last Name",
+                    //         labelStyle: mystyle(16, Colors.black26)),
+                    //   ),
+                    // ),
+                    SizedBox(
+                      height: 30,
                     ),
-                  ),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  InkWell(
-                    onTap: () => editprofil(),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width / 2,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        gradient:
-                            LinearGradient(colors: GradientColors.cherryNew),
+                    Container(
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      child: TextField(
+                        controller: usernamecontroller,
+                        style: mystyle(18, Colors.blueGrey),
+                        decoration: InputDecoration(
+                            labelText: "Update Username",
+                            labelStyle: mystyle(16, Colors.black26)),
                       ),
-                      child: Center(
-                        child: Text(
-                          "Update Profil",
-                          style: mystyle(17, Colors.white),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      child: TextField(
+                        controller: emailcontroller,
+                        style: mystyle(18, Colors.blueGrey),
+                        decoration: InputDecoration(
+                            labelText: "Update Email",
+                            labelStyle: mystyle(16, Colors.black26)),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 30,
+                    ),
+                    Container(
+                      margin: EdgeInsets.only(left: 30, right: 30),
+                      child: TextField(
+                        controller: passwordcontroller,
+                        style: mystyle(18, Colors.blueGrey),
+                        decoration: InputDecoration(
+                            labelText: "Update Password",
+                            labelStyle: mystyle(16, Colors.black26)),
+                      ),
+                    ),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    InkWell(
+                      onTap: () => editprofil(),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 2,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          gradient:
+                              LinearGradient(colors: GradientColors.cherryNew),
+                        ),
+                        child: Center(
+                          child: Text(
+                            "Update Profil",
+                            style: mystyle(17, Colors.white),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           );
