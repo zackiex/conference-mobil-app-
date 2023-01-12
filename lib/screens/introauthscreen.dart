@@ -16,8 +16,8 @@ class _IntroAuthScreenState extends State<IntroAuthScreen> {
     return IntroductionScreen(
       pages: [
         PageViewModel(
-            title: "Welcome",
-            body: "Welcome to Chat_App, for video conference",
+            title: "Herzlich willkommen",
+            body: "Welcome to Chat App, for video conference",
             image: Center(
               child: Image.asset('images/welcome.png', height: 175),
             ),
@@ -26,10 +26,10 @@ class _IntroAuthScreenState extends State<IntroAuthScreen> {
               titleTextStyle: mystyle(20, Colors.black),
             )),
         PageViewModel(
-            title: "Join or start mettings",
+            title: "Join or start Metings",
             body: "Easy to use",
             image: Center(
-              child: Image.asset('images/conference.png', height: 175),
+              child: Image.asset('images/conference.jpg', height: 175),
             ),
             decoration: PageDecoration(
               bodyTextStyle: mystyle(20, Colors.black),

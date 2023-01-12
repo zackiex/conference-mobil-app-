@@ -78,6 +78,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     child: TextField(
                       style: mystyle(18, Colors.black87),
                       controller: passwordcontroller,
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
                       decoration: InputDecoration(
                           hintText: "Password",
                           prefix: Icon(Icons.lock_outline),
