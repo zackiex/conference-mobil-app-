@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "134949461230",
+    "project_id": "belegmobilapp",
+    "storage_bucket": "belegmobilapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:134949461230:android:6ba143ddf5f79f28e367ff",
+        "android_client_info": {
+          "package_name": "com.belegdb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "134949461230-n5dgb7dcor5bh882q56mckasa8nnoq2e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABtS-8go6v7n65wIC8VVdsQa18qKeEMFY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "134949461230-n5dgb7dcor5bh882q56mckasa8nnoq2e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
